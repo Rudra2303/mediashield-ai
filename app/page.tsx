@@ -228,6 +228,17 @@ export default function Home() {
             </div>
 
             {/* AI Analyze Button */}
+            <a
+            href={imageUrl.replace(
+            "/upload/",
+            "/upload/f_auto,q_auto,w_800/"
+          )}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 block w-full rounded-lg border border-cyan-500 px-6 py-3 text-center font-semibold text-cyan-400 transition hover:bg-cyan-500/10"
+        >
+          View Optimized Image
+        </a>
             <button
               type="button"
               onClick={handleAnalyze}
