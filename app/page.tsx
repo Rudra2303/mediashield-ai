@@ -285,9 +285,70 @@ export default function Home() {
 
             {/* AI Response */}
             <div className="mt-6 rounded-xl border border-slate-800 bg-slate-950 p-4">
-              <pre className="max-h-[500px] overflow-auto whitespace-pre-wrap break-words text-sm leading-6 text-slate-300">
-                {JSON.stringify(analysis, null, 2)}
-              </pre>
+              <div className="space-y-4">
+  <div className="rounded-xl border border-slate-800 bg-slate-950 p-4">
+    <p className="text-sm font-semibold text-cyan-400">
+      📝 AI Description
+    </p>
+
+    <p className="mt-2 text-sm leading-6 text-slate-300">
+      {String(
+        (
+          analysis as {
+            data?: {
+              analysis?: {
+                responses?: { value?: string }[];
+              };
+            };
+          }
+        ).data?.analysis?.responses?.[0]?.value ||
+          "No description available."
+      )}
+    </p>
+  </div>
+
+  <div className="rounded-xl border border-slate-800 bg-slate-950 p-4">
+    <p className="text-sm font-semibold text-purple-400">
+      🔍 Object & Product Analysis
+    </p>
+
+    <p className="mt-2 whitespace-pre-wrap text-sm leading-6 text-slate-300">
+      {String(
+        (
+          analysis as {
+            data?: {
+              analysis?: {
+                responses?: { value?: string }[];
+              };
+            };
+          }
+        ).data?.analysis?.responses?.[1]?.value ||
+          "No object analysis available."
+      )}
+    </p>
+  </div>
+
+  <div className="rounded-xl border border-slate-800 bg-slate-950 p-4">
+    <p className="text-sm font-semibold text-green-400">
+      ✅ Professional Use Assessment
+    </p>
+
+    <p className="mt-2 whitespace-pre-wrap text-sm leading-6 text-slate-300">
+      {String(
+        (
+          analysis as {
+            data?: {
+              analysis?: {
+                responses?: { value?: string }[];
+              };
+            };
+          }
+        ).data?.analysis?.responses?.[2]?.value ||
+          "No assessment available."
+      )}
+    </p>
+  </div>
+</div>
             </div>
           </div>
         )}
